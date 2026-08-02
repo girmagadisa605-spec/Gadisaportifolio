@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaddisa Girma - Research & Data Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e40af;
+            --secondary: #0f172a;
+            --accent: #06b6d4;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Navigation */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--light-bg);
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero .container {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .hero .title {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        /* Professional Summary */
+        .summary-box {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 16px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            font-size: 14px;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Experience/Education Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 2rem;
+        }
+
+        .timeline-item:last-child {
+            border-left: none;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-size: 18px;
+        }
+
+        .timeline-item .organization {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .timeline-item .date {
+            color: var(--text-light);
+            font-size: 13px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin: 0.5rem 0;
+        }
+
+        /* Languages & Certifications */
+        .languages-grid, .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="phone"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="phone"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                gap: 1rem;
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #10b981;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">Gaddisa Girma</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Gaddisa Girma Lenjiso</h1>
+            <p class="title">Research & Data Analyst | Economist | Project Manager</p>
+            <div class="contact-info">
+                <span>📧 lenjisogadisa12@gmail.com</span>
+                <span>📱 +251 914 630 224</span>
+                <span>🌍 Ethiopia</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About/Summary -->
+        <section id="about">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary-box">
+                <p>Experienced Research and Data Analyst with strong background in economics, project management, and sociology. Skilled in both qualitative and quantitative data analysis, proficiently leveraging SPSS, STATA, R, GAM software, and NVivo. Demonstrated expertise in digital marketing, content marketing, and social media marketing, continuously expanding technical capabilities.</p>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Research and Data Analyst</h3>
+                    <p class="organization">Includovate, Australian Research Firm Operating in Ethiopia</p>
+                    <p class="date">2020 - Present</p>
+                    <p>• Analyzed qualitative and quantitative data, prepared comprehensive summary reports that informed strategic decision-making</p>
+                    <p>• Conducted in-depth interviews and focus group discussions, transcribed findings to uncover valuable insights</p>
+                    <p>• Trained enumerators and field workers on effective interview techniques, enhanced data collection processes</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Research Assistant (Survey Data Collector)</h3>
+                    <p class="organization">GIZ, Ethiopia</p>
+                    <p class="date">Multi-Country Gender Study & Food and Nutrition Security</p>
+                    <p>• Customized questionnaires to align with research objectives, ensured collection of relevant data</p>
+                    <p>• Conducted surveys using KOBO Software, gathered valuable insights to support study goals</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Research Assistant (Survey Data Collector)</h3>
+                    <p class="organization">MERQ Consultancy and Oxford Policy Management Limited</p>
+                    <p class="date">COVID-19 Impact Study</p>
+                    <p>• Gathered quantitative data using ODK, contributed to comprehensive understanding of pandemic effects</p>
+                    <p>• Collected market observations, tracked price changes of major staple food items</p>
+                    <p>• Synthesized findings and prepared detailed report to inform policymakers and stakeholders</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2 class="section-title">Key Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Microsoft Office Suite</li>
+                        <li>Adobe Photoshop</li>
+                        <li>MySQL Database Management</li>
+                        <li>Python Programming</li>
+                        <li>Java Programming</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Analysis Tools</h3>
+                    <ul>
+                        <li>SPSS</li>
+                        <li>STATA</li>
+                        <li>R Programming</li>
+                        <li>GAM Software</li>
+                        <li>NVivo (Qualitative)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Communication & Teamwork</li>
+                        <li>Problem-Solving</li>
+                        <li>Analytical Abilities</li>
+                        <li>Project Management</li>
+                        <li>Data Collection</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Marketing & Industry</h3>
+                    <ul>
+                        <li>Digital Marketing</li>
+                        <li>Content Marketing</li>
+                        <li>Social Media Marketing</li>
+                        <li>Customer Service</li>
+                        <li>Market Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>MSc in Developmental Economics</h3>
+                    <p class="organization">Amsterdam University, Netherlands</p>
+                    <p class="date">2014 - 2016</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>MSc in Project Management</h3>
+                    <p class="organization">Leadstar College, Ethiopia</p>
+                    <p class="date">2017 - 2018</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>BA in Economics</h3>
+                    <p class="organization">Haramaya University, Ethiopia</p>
+                    <p class="date">2009 - 2012</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>BA in Sociology</h3>
+                    <p class="organization">Haramaya University, Ethiopia</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+            <h2 class="section-title">Certifications & Trainings</h2>
+            
+            <div class="cert-grid">
+                <div class="badge">SPSS & STATA Analysis (Addis Ababa University 2014)</div>
+                <div class="badge">Longitudinal Data Analysis (2017)</div>
+                <div class="badge">R & GAM Software (Bonn University 2017)</div>
+                <div class="badge">NVivo Qualitative Analysis (Includovate 2020)</div>
+                <div class="badge">Strategic Foresight Tools (APO 2022)</div>
+                <div class="badge">HubSpot Digital Marketing (2024)</div>
+                <div class="badge">HubSpot Content Marketing (2024)</div>
+                <div class="badge">HubSpot Social Media Marketing (2024)</div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+            <h2 class="section-title">Languages</h2>
+            
+            <div class="languages-grid">
+                <div class="badge">Afaan Oromo (Mother Tongue)</div>
+                <div class="badge">Amharic (Proficient)</div>
+                <div class="badge">English (Proficient)</div>
+                <div class="badge">French (Basic)</div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section>
+            <h2 class="section-title">Publications</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>The Effect of Foreign Direct Investment on Ethiopian Economic Growth</h3>
+                    <p class="organization">Journal of Positive School Psychology</p>
+                    <p class="date">2022</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-section">
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you for your message! I'll get back to you soon.
+                </div>
+                
+                <form id="contactForm" action="https://formspree.io/f/xkgonqnj" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="phone" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Gaddisa Girma Lenjiso. All rights reserved.</p>
+            <p>Research & Data Analyst | Economist | Project Manager</p>
+            <div class="social-links">
+                <a href="mailto:lenjisogadisa12@gmail.com">Email</a>
+                <a href="tel:+251914630224">Call</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const successMessage = document.getElementById('successMessage');
+            
+            // Form will submit to Formspree
+            // Show success message after submission
+            setTimeout(() => {
+                successMessage.classList.add('show');
+                this.reset();
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
